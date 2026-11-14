@@ -21,7 +21,7 @@ Use a desktop pointer device for the canvas. The documentation works on mobile; 
 
 ```sh
 git clone https://github.com/cmmf-project/cmmf-studio.git
-cd cmmf-visual-editor
+cd cmmf-studio
 npm install
 npm run dev
 ```

@@ -1,12 +1,12 @@
 # Skills documentation update
 
-Tracking: [issue #2](https://github.com/headless-company/cmmf-docs-web/issues/2). Branch: `docs/cmmf-skills-migration`.
+Tracking: [issue #2](https://github.com/cmmf-project/cmmf-docs-web/issues/2). Branch: `docs/cmmf-skills-migration`.
 
 ## Scope and source
 
 Implements the 20 October 2026 `cmmf-skills/docs/docs-site-handover.md`, based on Skills commit `68ec28d3993eb08298ebf9a896f6a9d51b425bf0`, suite workspace version 0.2.0. The full revision was verified on GitHub during implementation. Nineteen committed source files are preserved under `reference/skills/<sha>/` with exact source/bundled SHA-256 values in `source-provenance.json`. Earlier working-tree evidence remains explicitly historical. Format pins and vendored source bytes are unchanged; the original archive has a separately recorded privacy redaction of private brand repository identifiers, with deliberately refreshed metadata checksums.
 
-The existing `/tools/` and `/tools/skills/` routes now lead to twelve additional pages: six individual workflows, worked journeys, sources/versions, local commands, adoption, migration and troubleshooting. The manual learning route remains useful. Contribution/source links use `headless-company/cmmf-skills`. Legacy command names occur only in the migration comparison; `.cmmf-agent/` retains its supported convention-directory meaning.
+The existing `/tools/` and `/tools/skills/` routes now lead to twelve additional pages: six individual workflows, worked journeys, sources/versions, local commands, adoption, migration and troubleshooting. The manual learning route remains useful. Contribution/source links use `cmmf-project/cmmf-skills`. Legacy command names occur only in the migration comparison; `.cmmf-agent/` retains its supported convention-directory meaning.
 
 Stable and beta articles link into shared tool documentation rather than duplicating it per format edition. Tool pages carry both edition tags in Pagefind, alongside a shared marker, so each edition’s search can retrieve them and display a shared-guidance badge without a format selector. Beta overview, adoption and validation pages disclose unsupported helper semantics. No broad format-version substitution can turn these shared compatibility statements into beta support claims. The beta validation note is a site-owned addition after importing the pinned upstream text; its raw upstream download stays exact.
 

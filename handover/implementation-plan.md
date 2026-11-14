@@ -1,6 +1,6 @@
 # Implementation plan for cmmf-docs-web
 
-This is the working plan for the existing `headless-company/cmmf-docs-web` repository. It supersedes the repository creation/scaffolding assumptions in the exported handover. The original pack under `artifacts/cmmf-site-handover/` remains intact as export evidence.
+This is the working plan for the existing `cmmf-project/cmmf-docs-web` repository. It supersedes the repository creation/scaffolding assumptions in the exported handover. The original pack under `artifacts/cmmf-site-handover/` remains intact as export evidence.
 
 ## Repository and sources
 
@@ -40,4 +40,4 @@ The user remains the initial editorial reviewer. Optional Headless Company attri
 
 ## Skills migration, October 2026
 
-Current tool ownership is `headless-company/cmmf-skills`. The public site now documents all six independent skills and shared operational workflows; the original handover archive remains historical. Stable and beta editions link to shared Skills pages and disclose unsupported beta helper semantics. See [the update record](skills-documentation-update.md) and issue #2.
+Current tool ownership is `cmmf-project/cmmf-skills`. The public site now documents all six independent skills and shared operational workflows; the original handover archive remains historical. Stable and beta editions link to shared Skills pages and disclose unsupported beta helper semantics. See [the update record](skills-documentation-update.md) and issue #2.

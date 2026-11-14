@@ -22,7 +22,7 @@ Broad Chromium/Microsoft Edge and WebKit reviews each passed 112 page/theme/view
 
 ## Publication attempt, 13 November 2026
 
-Implementation commit `357fdf909b730882c311dc03a3768001e1644463` was pushed to `main`. GitHub Actions run https://github.com/headless-company/cmmf-docs-web/actions/runs/43452446757 completed successfully, including the build and both browser engines.
+Implementation commit `357fdf909b730882c311dc03a3768001e1644463` was pushed to `main`. GitHub Actions run https://github.com/cmmf-project/cmmf-docs-web/actions/runs/43452446757 completed successfully, including the build and both browser engines.
 
 Cloudflare deployment `27889691-42ba-442e-bc63-045f14ff6096` passed the build and all validators, uploaded assets, then failed publishing with “Failed to publish your Function. Got error: Unknown internal error occurred.” This repository remains a static site without a Functions directory. An authorised retry of the same revision created deployment `01045d7f-5a1e-4aa8-8bf2-84d1f95d7ef7`, which reached asset publication but remained active at the final check. The production agent entry URL still returned 404. No live success is claimed.
 

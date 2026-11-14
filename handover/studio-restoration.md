@@ -23,4 +23,4 @@ On https://cmmf.dev, 17 files matched the reviewed local output byte for byte: h
 
 Live Chromium/Microsoft Edge review passed 24 page/theme/viewport combinations (six pages at 390/1440 px in both themes), 16 axe scans with zero violations, fonts/logo geometry, overflow, keyboard navigation, theme persistence, edition/shared search, topic switching/fallback, restored Studio journey and downloads. No browser errors or failed requests were recorded. The restored live walkthrough was visually inspected at desktop/mobile sizes. Local WebKit coverage is recorded above; live WebKit was not run. Reports/screenshots are ignored artifacts under `artifacts/site-review/studio-live/`; HTTP byte hashes are in `artifacts/site-review/studio-live-http.json`.
 
-GitHub CI is tracked separately at https://github.com/headless-company/cmmf-docs-web/actions/runs/43047900305; Cloudflare deployment success does not establish its completion.
+GitHub CI is tracked separately at https://github.com/cmmf-project/cmmf-docs-web/actions/runs/43047900305; Cloudflare deployment success does not establish its completion.

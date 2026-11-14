@@ -5,6 +5,7 @@ import { prepareDiagrams } from './lib/diagrams.mjs';
 import { prepareExampleDownloads } from './lib/example-downloads.mjs';
 import { exampleSets } from './lib/examples.mjs';
 import { loadModelSet } from './lib/model-set.mjs';
+import { canonicalRepositoryUrl } from './lib/repository-links.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const map = JSON.parse(readFileSync(resolve(root, 'content-map.json'), 'utf8'));
@@ -20,6 +21,8 @@ sourceRoutes.set('vendor/cmmf/examples', '/examples/');
 sourceRoutes.set('vendor/cmmf/examples/models', '/examples/article/#included-models');
 function rewriteLinks(text, source) {
   return text.replace(/\]\(([^\s)]+)\)/g, (match, target) => {
+    const canonical = canonicalRepositoryUrl(target);
+    if (canonical !== target) return `](${canonical})`;
     if (/^(?:[a-z]+:|\/|#)/i.test(target)) return match;
     const [path, fragment] = target.split('#');
     const destination = sourceRoutes.get(posix.normalize(posix.join(posix.dirname(source), path)).replace(/\/$/, ''));

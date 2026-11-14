@@ -185,7 +185,7 @@ These are decisions for implementation or launch, not blockers to preparing the 
 
 - Is there a target launch date, particularly a deadline connected to the CMSConf talk?
 - Which Cloudflare account should own the projects, and is `cmmf.dev` already using Cloudflare DNS? Confirm the registrar and any existing records before domain setup.
-- Should the existing GitHub organisation own both deployments? This repository currently points to `headless-company/content-model-master-format`.
+- Should the existing GitHub organisation own both deployments? This repository currently points to `cmmf-project/content-model-master-format`.
 - Is Customer Story the preferred teaching example, or is another real scenario more useful? The plan assumes Customer Story plus the existing Article examples.
 - Should the footer include a small “A Headless Company project” attribution? The brand allows a separate optional credit.
 - Are there priority CMS targets for a later mapping guide? The plan assumes the core launch explains translation without claiming completed adapters.
