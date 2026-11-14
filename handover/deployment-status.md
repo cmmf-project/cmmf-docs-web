@@ -1,6 +1,23 @@
 # Deployment progress
 
-Updated 15 October 2026.
+Updated 14 November 2026.
+
+## Organisation migration: 14 November 2026
+
+This section records current hosting. The later sections preserve the initial publication evidence.
+
+- Source repository: `cmmf-project/cmmf-docs-web`.
+- Current Pages project: `cmmf-docs-project`, provider address `https://cmmf-docs-project.pages.dev`.
+- `cmmf.dev` and `www.cmmf.dev` are registered on the new project. Cloudflare reports domain, verification and certificate validation all **active**.
+- Automatic preview and production deployment from GitHub pushes were verified. The application/content revision checked after the cutover is `c8327a99e198c632e60828f1f15198a0050f2e9f`.
+- Production build settings, production branch and preview configuration were preserved. Both source-lock repository locations now use the new organisation; their revisions, file hashes and vendored bytes are unchanged.
+- HTTPS returns 200. HTTP redirects to HTTPS; `www` redirects to the apex while preserving paths and query strings.
+- Hosted interaction checks passed on `cmmf.dev`: stable/beta topic switching and scoped/shared search, navigation, responsive widths, 404 recovery, Studio handoff and downloads. All 132 checked raw Markdown, retrieval, ZIP and schema files match the reviewed build byte for byte.
+- The source change passed local diagnostics/build and 112 template/theme/viewport combinations. GitHub CI passed with Chromium and WebKit before merge.
+- The previous `cmmf-docs-web` Pages project and deployment history remain intact, with automatic production and preview builds disabled and custom domains removed. Its provider address remains available for recovery.
+- Studio is independently deployed from `cmmf-project/cmmf-studio` through `cmmf-studio-project`; `studio.cmmf.dev` is active. Its 41 hosted browser tests passed before cutover, followed by four import/export, persistence and New canvas checks on the custom domain.
+
+During provider-host testing the local resolver cached NXDOMAIN. Public DNS addresses were used for those browser processes with TLS validation enabled; system DNS was not changed. Final custom-domain checks used normal resolution.
 
 ## Published site
 

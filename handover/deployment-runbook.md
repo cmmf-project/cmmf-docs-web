@@ -6,6 +6,7 @@ The site is ready for a static Pages build from the existing `cmmf-project/cmmf-
 
 | Setting | Value |
 | --- | --- |
+| Pages project | `cmmf-docs-project` |
 | Repository | `cmmf-project/cmmf-docs-web` |
 | Root directory | Repository root |
 | Production branch | `main` |
@@ -26,7 +27,7 @@ These settings follow [Cloudflare's Astro guide](https://developers.cloudflare.c
 1. Review the site-owned copy and licensing decision, then commit and push the reviewed repository state before connecting the project.
 2. In the selected Cloudflare account, create a **Pages** project using Git integration and the settings above. Keep Studio in its own project.
 3. Check the generated `pages.dev` deployment before attaching a domain. Open the homepage, an article, dense reference, search and both downloadable project ZIPs. Confirm that `/404.html` exists in the output.
-4. Inspect the existing `cmmf.dev` DNS zone and export the current records before changing domain settings. Preserve mail and unrelated services. An apex custom domain requires the domain to be a zone in the same Cloudflare account; use the Pages **Custom domains** flow to associate it. The docs apex record is CNAME `@` to `cmmf-docs-web.pages.dev` (Cloudflare flattens it at the apex). A DNS record by itself does not register the domain with Pages.
+4. Inspect the existing `cmmf.dev` DNS zone and export the current records before changing domain settings. Preserve mail and unrelated services. An apex custom domain requires the domain to be a zone in the same Cloudflare account; use the Pages **Custom domains** flow to associate it. The docs apex record is CNAME `@` to `cmmf-docs-project.pages.dev` (Cloudflare flattens it at the apex). A DNS record by itself does not register the domain with Pages.
 5. Keep `studio.cmmf.dev` associated with the independent Studio deployment. Check its existing status rather than assigning the docs project to that subdomain. The user added `www.cmmf.dev`; both domains are registered with Pages. The apex redirect has been deployed and verified; its exact settings are in [www-redirect.md](www-redirect.md).
 
 The domain process follows [Cloudflare's custom domain documentation](https://developers.cloudflare.com/pages/configuration/custom-domains/). No account-specific project ID or DNS value is invented here.
@@ -44,5 +45,7 @@ Cloudflare adds `X-Robots-Tag: noindex` to preview URLs. Verify this on a branch
 Record the deployed Git revision, Pages deployment URL/ID, domain checks and date here or in a release note. The initial production deployment and verification are recorded in [deployment-status.md](deployment-status.md).
 
 ## Roll back
+
+The organisation migration is recorded in [deployment-status.md](deployment-status.md). The former `cmmf-docs-web` Pages project is retained with automatic builds disabled. Production uses `cmmf-docs-project`; do not reconnect new work to the former project.
 
 Use the last verified Pages production deployment to roll back a bad site build. For source/content fixes, restore or correct the repository change, rerun checks and deploy a reviewed revision. A docs rollback does not roll back Studio or a live CMS. Keep the prior DNS record export available if domain setup itself needs to be reverted.
