@@ -2,9 +2,22 @@
 
 Updated 14 November 2026.
 
+## Dedicated Cloudflare account: 14 November 2026
+
+This section supersedes the hosting and recovery statements in the earlier organisation-migration record below.
+
+- Account: **CMMF Project**. Pages project: `cmmf-project-docs`; provider hostname: `cmmf-docs-web.pages.dev`. The project name and provider hostname differ; use the recorded provider hostname for DNS.
+- Git source: `cmmf-project/cmmf-docs-web`, production branch `main`, `npm run build`, output `dist`, Node `22.23.3`. The Git build and deployment succeeded for `427a5078216e58fc0a84b15171ba410b7f4d6547` (deployment `007921c8-2bed-4994-ac1b-4b0ed88f2d23`).
+- The `cmmf.dev` zone was recreated with all five records, including both exact TXT values and the www-to-apex redirect. Porkbun remains the registrar. Public DNS reports `aspen.ns.cloudflare.com` and `rustam.ns.cloudflare.com`.
+- Public apex and Studio HTTPS return 200; www returns 301 preserving path and query. All three Pages custom domains report active verification and certificate validation. Zone activation status: **active**.
+- Hosted documentation interaction checks passed: stable/beta navigation and search, downloads, recovery navigation and responsive widths. All 159 checked non-Pagefind Markdown, text, JSON and ZIP downloads match the reviewed build exactly. The build-generated Pagefind index differs between builds; live search was verified separately.
+- Studio is independently deployed through `cmmf-project-studio` at `cmmf-project-studio.pages.dev`. Its four targeted hosted editing, import, persistence and New canvas checks passed.
+- The original account retains `cmmf-docs-recovery` and `cmmf-studio-recovery` as independent Direct Upload recovery projects. The four superseded Git-linked projects were deleted after recovery-domain activation and exact HTML verification. Their historical deployment URLs are no longer available; configuration, deployment metadata and current static artifacts were backed up privately.
+- The hostname and browser origin remain unchanged; this account migration does not move or synchronise visitor browser data. Keep recovery resources and the old zone until rollback retention is reviewed separately.
+
 ## Organisation migration: 14 November 2026
 
-This section records current hosting. The later sections preserve the initial publication evidence.
+This section preserves the earlier GitHub organisation cutover. The dedicated-account record above describes current hosting.
 
 - Source repository: `cmmf-project/cmmf-docs-web`.
 - Current Pages project: `cmmf-docs-project`, provider address `https://cmmf-docs-project.pages.dev`.
