@@ -4,6 +4,7 @@ import { parse, stringify } from 'yaml';
 import { editions, stableVersion, betaVersion, versionedTopic } from './lib/versions.mjs';
 import { prepareExampleDownloads } from './lib/example-downloads.mjs';
 import { prepareDiagrams } from './lib/diagrams.mjs';
+import { canonicalRepositoryUrl } from './lib/repository-links.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const output = resolve(root, '.generated/docs');
@@ -45,6 +46,8 @@ function relinkImports(text, sourceFile, destinationFile) {
 function imported(source, title) {
   let text = readFileSync(resolve(root, beta.snapshot, source), 'utf8').replace(/^# [^\n]+\n+/, '');
   text = text.replace(/\]\(([^\s)]+)\)/g, (match, target) => {
+    const canonical = canonicalRepositoryUrl(target);
+    if (canonical !== target) return `](${canonical})`;
     if (/^(?:[a-z]+:|\/|#)/i.test(target)) return match;
     const [path, hash] = target.split('#');
     const key = posix.normalize(posix.join(posix.dirname(source), path)).replace(/\/$/, '');

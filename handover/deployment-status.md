@@ -25,13 +25,13 @@ During provider-host testing the local resolver cached NXDOMAIN. Public DNS addr
 - Pages project: `cmmf-docs-web`, ID `08f9c1e7-34eb-4251-9fbf-bac41d035079`.
 - Pages address: https://cmmf-docs-web.pages.dev.
 - Initial production deployment: `6930dda4-91fa-404e-a752-7c02b7082fe6`, https://6930dda4.cmmf-docs-web.pages.dev, deployed successfully at 23:41 UTC on 14 October 2026.
-- Initial deployed site revision: `4c3f29c259212ca56d77aa718d7664c3e4426de5` on `main` in `headless-company/cmmf-docs-web`.
+- Initial deployed site revision: `4c3f29c259212ca56d77aa718d7664c3e4426de5` on `main` in `cmmf-project/cmmf-docs-web`.
 - GitHub integration is configured for automatic production builds from `main` and branch previews. Build command `npm run build`, output `dist`, repository root, `NODE_VERSION=22.23.3` for production and preview. The initial deployment successfully cloned and built the repository. Automatic GitHub deployment was verified by pushing documentation commit `5482d106c31b1461f4ae580b5fd3d288501ae23e`: deployment `575a4647-bc4e-4cb5-ad64-9028880ac99e` completed successfully at 00:03 UTC on 15 October. Its trigger is recorded as `github:push`. An actual branch-preview deployment has not been reviewed yet.
 
 ## Verification
 
-- Deployment documentation revision `0aa39d0` also passed [GitHub Actions run 38657847552](https://github.com/headless-company/cmmf-docs-web/actions/runs/38657847552), including both browser engines.
-- [GitHub Actions run 38655088672](https://github.com/headless-company/cmmf-docs-web/actions/runs/38655088672) passed every gate, including Chromium and Linux WebKit browser review.
+- Deployment documentation revision `0aa39d0` also passed [GitHub Actions run 38657847552](https://github.com/cmmf-project/cmmf-docs-web/actions/runs/38657847552), including both browser engines.
+- [GitHub Actions run 38655088672](https://github.com/cmmf-project/cmmf-docs-web/actions/runs/38655088672) passed every gate, including Chromium and Linux WebKit browser review.
 - The live Pages address passed 40 template/theme/viewport combinations, 20 automated WCAG audits with zero violations, search, navigation, keyboard interactions, theme persistence, font loading, logo geometry and project download checks. No browser errors or failed requests were recorded.
 - The live apex domain passed the three primary templates at 390 and 1440 px in both themes (12 combinations), 12 automated WCAG audits with zero violations, and the search/navigation/download interactions. No browser errors or failed requests were recorded. Screenshots were inspected visually.
 - Live schema, both project ZIPs, diagram source/SVG, raw Markdown, social image, robots, sitemap and retrieval files matched the local reviewed build byte for byte. Eleven files, including the homepage, were independently compared on `cmmf.dev`.

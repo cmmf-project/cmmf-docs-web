@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { load } from 'cheerio';
 import { createHash } from 'node:crypto';
 import { checkExampleDownloads } from './lib/example-downloads.mjs';
+import { canonicalRepositoryUrl } from './lib/repository-links.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const dist = resolve(root, 'dist');
@@ -34,6 +35,7 @@ for (const file of pages) {
   for (const element of $('[href], [src]').toArray()) {
     const target = $(element).attr('href') ?? $(element).attr('src');
     if (!target || /^(mailto:|tel:|data:|javascript:)/.test(target)) continue;
+    if (canonicalRepositoryUrl(target) !== target) errors.push(`${route}: old repository URL ${target}`);
     const url = new URL(target, `https://cmmf.dev${route}`);
     if (url.origin !== 'https://cmmf.dev') continue;
     links++;
@@ -59,6 +61,15 @@ const privateBrandRepository = /\bcmmf[-_]brand(?:ing)?(?![-\w])/i;
 for (const file of files(dist)) {
   if (privateBrandRepository.test(readFileSync(file, 'utf8'))) errors.push(`Private repository reference in public output: ${file.slice(dist.length)}`);
 }
+// Site-authored retrieval guidance must use current addresses. Original upstream
+// Markdown and pinned reference packs retain their exact, separately checked bytes.
+for (const file of files(resolve(dist, 'raw/site'))) {
+  for (const [url] of readFileSync(file, 'utf8').matchAll(/https?:\/\/(?:github\.com|raw\.githubusercontent\.com)\/[^\s`<)]+/g)) {
+    if (canonicalRepositoryUrl(url) !== url) errors.push(`Old repository URL in site guidance: ${file.slice(dist.length)}: ${url}`);
+  }
+}
+const studioGuide = readFileSync(resolve(dist, 'raw/site/tools/studio.md'), 'utf8');
+if (!studioGuide.includes('git clone https://github.com/cmmf-project/cmmf-studio.git\ncd cmmf-studio\n')) errors.push('Studio clone instructions must enter the cloned cmmf-studio directory.');
 const lock = JSON.parse(readFileSync(resolve(root, 'cmmf-source.lock.json'), 'utf8'));
 const png = readFileSync(resolve(dist, 'images/social/cmmf-social-preview.png'));
 if (png.readUInt32BE(16) !== 1280 || png.readUInt32BE(20) !== 640) errors.push('Social preview must be 1280 × 640.');
